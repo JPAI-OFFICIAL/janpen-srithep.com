@@ -3,54 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Janpen Srithep - เว็บไซต์อย่างเป็นทางการ</title>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&family=Kanit:wght@500;700&display=swap" rel="stylesheet">
+<title>จันทร์เพ็ญ Home Office Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600;700&family=Prompt:wght@300;400&display=swap" rel="stylesheet">
 <style>
+:root{--navy:#0E2440;--gold:#C5A46D}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Prompt',sans-serif;background:#FFFBF5;color:#4A3B32;line-height:1.7}
-.hero{background:linear-gradient(135deg,#8B5E3C 0%,#D9A679 100%);color:white;padding:80px 20px 100px;text-align:center;border-radius:0 0 40px 40px}
-.hero h1{font-family:'Kanit',sans-serif;font-size:42px;font-weight:700;letter-spacing:1px}
-.hero h2{font-size:18px;font-weight:300;opacity:0.9;margin-top:8px}
-.hero .tagline{margin:30px auto 0;background:white;color:#8B5E3C;display:inline-block;padding:10px 24px;border-radius:50px;font-weight:600;font-size:15px}
-.container{max-width:800px;margin:-40px auto 0;padding:0 20px 60px}
-.card{background:white;border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(139,94,60,0.1);margin-bottom:20px}
-.card h3{font-family:'Kanit',sans-serif;color:#8B5E3C;margin-bottom:12px;font-size:20px}
-.btn{display:inline-block;background:#8B5E3C;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;margin-top:12px}
-.btn:hover{background:#6F4B30}
-.contact{text-align:center}
-.footer{text-align:center;padding:40px 20px;color:#9A8A82;font-size:13px}
+body{font-family:'Prompt',sans-serif;background:#FAF7F1;color:var(--navy);scroll-behavior:smooth}
+.hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:white;padding:30px 20px}
+.hero img.logo-img{width:180px;height:180px;border-radius:50%;border:4px solid var(--gold);box-shadow:0 0 0 8px rgba(197,164,109,0.2),0 20px 40px rgba(0,0,0,0.4);object-fit:cover;background:white}
+.hero h1{font-family:'Kanit';font-size:34px;margin-top:22px;line-height:1.1}
+.hero h1 span{color:var(--gold)}
+.hero p{letter-spacing:2px;font-size:11px;opacity:0.7;margin-top:10px}
+.btn{margin-top:24px;background:var(--gold);color:var(--navy);padding:13px 34px;border-radius:50px;text-decoration:none;font-family:'Kanit';font-weight:700;display:inline-block}
+.slider{position:relative;height:62vh;max-width:1100px;width:92%;margin:30px auto 0;border-radius:20px;overflow:hidden;background:#000}
+.slide{position:absolute;inset:0;opacity:0;transition:1s;cursor:pointer}.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+.cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(14,36,64,0.95));padding:28px 22px;color:white}
+.cap h3{font-family:'Kanit';font-size:20px}.cap h3 span{color:var(--gold)}
+.dots{position:absolute;bottom:12px;right:16px;display:flex;gap:6px}.dot{width:22px;height:3px;background:rgba(255,255,255,0.4)}.dot.active{background:var(--gold)}
+.section{max-width:1100px;margin:0 auto;padding:50px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:white;border-radius:14px;overflow:hidden;border:1px solid rgba(197,164,109,0.25)}
+.card img{width:100%;height:180px;object-fit:cover}.info{padding:14px}.info h4{font-family:'Kanit';font-size:14px}
+.footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:22px;font-size:11px}.footer b{color:var(--gold)}
 </style>
 </head>
 <body>
+
 <div class="hero">
-<h1>JANPEN SRITHEP</h1>
-<h2>janpen-srithep.com</h2>
-<div class="tagline">✨ ยินดีต้อนรับสู่เว็บไซต์อย่างเป็นทางการ ✨</div>
-</div>
+<img class="logo-img" src="logo.png" alt="logo">
+<h1>จันทร์เพ็ญ <span>Home Office Shop</span></h1>
+<p>OFFICE DECORATION IDEA • MINIMALIST | NAVY + GOLD | LUXURY</p>
+<p>มินิมาร์ทค้าส่ง อ.ศรีเทพ • สำนักงาน | อุปกรณ์สำนักงาน | ค้าส่ง</p>
+<a class="btn" href="#products">กดเข้าชมสินค้า ↓</a>
 
-<div class="container">
-<div class="card">
-<h3>🙏 สวัสดีครับ</h3>
-<p>เว็บไซต์นี้อยู่ระหว่างการพัฒนาและปรับปรุงเพื่อให้บริการที่ดีที่สุด ขอบคุณทุกท่านที่แวะมาเยี่ยมชมครับ</p>
-<p style="margin-top:10px;color:#8B5E3C;font-weight:600;">โดย พี่เกษม</p>
+<div class="slider" id="slider">
+<div class="slide active" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+<img src="https://images.unsplash.com/photo-1497366811353-26cc3f7fa6fa?w=1100"><div class="cap"><h3>จันทร์เพ็ญ Home Office Shop - <span>หน้าร้านพรีเมียม</span></h3></div>
 </div>
-
-<div class="card">
-<h3>📦 สินค้าและบริการ</h3>
-<p>เร็วๆ นี้จะพบกับสินค้าคุณภาพ และเรื่องราวดีๆ ที่เราตั้งใจทำเพื่อทุกคนครับ</p>
+<div class="slide" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+<img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1100"><div class="cap"><h3>OFFICE DECORATION IDEA - <span>จัดโต๊ะทำงานหรู</span></h3></div>
 </div>
-
-<div class="card contact">
-<h3>📩 ติดต่อเรา</h3>
-<p>สนใจสอบถามข้อมูลเพิ่มเติม ติดต่อได้ที่</p>
-<a class="btn" href="mailto:contact@janpen-srithep.com">contact@janpen-srithep.com</a>
-<p style="margin-top:16px;font-size:13px;color:#9A8A82;">หรือทักแชทเฟสบุ๊คของเราได้เลยครับ</p>
+<div class="slide" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+<img src="https://images.unsplash.com/photo-1519974719765-e6559eac2575?w=1100"><div class="cap"><h3>WHOLESALE • <span>OFFICE SUPPLIES</span> ค้าส่งราคาพิเศษ</h3></div>
+</div>
+<div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
 </div>
 </div>
 
-<div class="footer">
-© 2026 Janpen Srithep. All rights reserved.<br>
-Powered by GitHub Pages
+<div class="section" id="products">
+<h2 style="font-family:Kanit;text-align:center;font-size:24px">หมวดหมู่ <span style="color:var(--gold)">สินค้า</span></h2>
+<div class="grid" style="margin-top:20px">
+<div class="card"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600"><div class="info"><h4>กระดาษ / PAPER • A4 ยกแพ็ค</h4></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1497366811353-26cc3f7fa6fa?w=600"><div class="info"><h4>อุปกรณ์สำนักงานครบวงจร</h4></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600"><div class="info"><h4>ออกแบบออฟฟิศ • Renovation</h4></div></div>
 </div>
+</div>
+
+<div class="footer"><b>HOME OFFICE SHOP</b> • homeofficeshop.com • 065-398-1024<br>© 2026 จันทร์เพ็ญ Home Office Shop - มินิมาร์ทค้าส่ง อ.ศรีเทพ</div>
+
+<script>
+let i=0;const sl=document.querySelectorAll('.slide');const dt=document.querySelectorAll('.dot');
+function sh(n){sl.forEach(s=>s.classList.remove('active'));dt.forEach(d=>d.classList.remove('active'));sl[n].classList.add('active');dt[n].classList.add('active')}
+setInterval(()=>{i=(i+1)%sl.length;sh(i)},3500);
+</script>
 </body>
 </html>
